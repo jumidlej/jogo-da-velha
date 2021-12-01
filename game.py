@@ -3,13 +3,13 @@ from random import *
 
 class GameState:
     """
-    Classe que representa o estado do jogo.
+    Classe que representa o estado do jogo da velha.
     """
 
     # -------------------------------------------------
     def __init__(self):
         """
-        Construtor. Initializa o tabuleiro 3x3 vazio.
+        Construtor. Inicializa o tabuleiro 3x3 vazio.
         """
         self.board = [[''] * 3 for n in range(3)]
 
@@ -90,15 +90,130 @@ class GameState:
         self.board[row][col] = piece
 
     # -------------------------------------------------
-    def moveRandom(self, piece):
+    def serverMove(self, piece):
         """
-        Faz uma jogada aleatória no tabuleiro, em uma das posições vazias.
+        Faz uma jogada no tabuleiro, em uma das posições vazias.
 
         Parâmetros
         ----------
         piece: str
             Letra com o símbolo jogado, entre as opções 'o' e 'x'.
         """
+        # Faz uma jogada para vencer nas linhas nesta rodada, se possível
+        for row in range(3):
+            qtdO = 0
+            qtdX = 0
+            for col in range(3):
+                if self.board[row][col] == 'o':
+                    qtdO += 1
+                if self.board[row][col] == 'x':
+                    qtdX += 1
+            if qtdO == 2 and qtdX == 0:
+                self.board[row][0] = 'o'
+                self.board[row][1] = 'o'
+                self.board[row][2] = 'o'
+                return
+
+        # Faz uma jogada para vencer nas colunas nesta rodada, se possível
+        for col in range(3):
+            qtdO = 0
+            qtdX = 0
+            for row in range(3):
+                if self.board[row][col] == 'o':
+                    qtdO += 1
+                if self.board[row][col] == 'x':
+                    qtdX += 1
+            if qtdO == 2 and qtdX == 0:
+                self.board[0][col] = 'o'
+                self.board[1][col] = 'o'
+                self.board[2][col] = 'o'
+                return
+
+        # Faz uma jogada para vencer na diagonal nesta rodada, se possível
+        qtdO = 0
+        qtdX = 0
+        for col in range(3):
+            if self.board[col][col] == 'o':
+                qtdO += 1
+            if self.board[col][col] == 'x':
+                qtdX += 1
+        if qtdO == 2 and qtdX == 0:
+            self.board[0][0] = 'o'
+            self.board[1][1] = 'o'
+            self.board[2][2] = 'o'
+            return
+
+        # Faz uma jogada para vencer na diagonal nesta rodada, se possível
+        qtdO = 0
+        qtdX = 0
+        for col in range(3):
+            if self.board[col][2-col] == 'o':
+                qtdO += 1
+            if self.board[col][2-col] == 'x':
+                qtdX += 1
+        if qtdO == 2 and qtdX == 0:
+            self.board[0][2] = 'o'
+            self.board[1][1] = 'o'
+            self.board[2][0] = 'o'
+            return
+
+        # Impede o X de ganhar nas linhas nesta rodada, se possível
+        for row in range(3):
+            empty_row = -1
+            empty_col = -1
+            qtdX = 0
+            for col in range(3):
+                if self.board[row][col] == '':
+                    empty_row = row
+                    empty_col = col
+                if self.board[row][col] == 'x':
+                    qtdX += 1
+            if qtdX == 2 and empty_row >= 0:
+                self.move(empty_row, empty_col, 'o')
+                return
+
+        # Impede o X de ganhar nas colunas nesta rodada, se possível
+        for col in range(3):
+            empty_row = -1
+            empty_col = -1
+            qtdX = 0
+            for row in range(3):
+                if self.board[row][col] == '':
+                    empty_row = row
+                    empty_col = col
+                if self.board[row][col] == 'x':
+                    qtdX += 1
+            if qtdX == 2 and empty_row >= 0:
+                self.move(empty_row, empty_col, 'o')
+                return
+
+        # Impede o X de ganhar na diagonal
+        qtdX = 0
+        empty_row = -1
+        empty_col = -1
+        for col in range(3):
+            if self.board[col][col] == '':
+                empty_row = row
+                empty_col = col
+            if self.board[col][col] == 'x':
+                qtdX += 1
+        if qtdX == 2 and empty_row >= 0:
+            self.move(empty_row, empty_col, 'o')
+            return
+
+        # Impede o X de ganhar na diagonal
+        qtdX = 0
+        empty_row = -1
+        empty_col = -1
+        for col in range(3):
+            if self.board[col][2-col] == '':
+                empty_row = row
+                empty_col = col
+            if self.board[col][2-col] == 'x':
+                qtdX += 1
+        if qtdX == 2 and empty_row >= 0:
+            self.move(empty_row, empty_col, 'o')
+            return
 
         # Cria uma lista com as posições vazias
         options = []
@@ -116,10 +231,16 @@ class GameState:
             col = options[0][1]
             self.move(row, col, piece)
 
+    # -------------------------------------------------
     def checkGameVictory(self):
+        """
+        Verifica se o jogo foi vencido por alguma das peças.
+
+        """
         qtdX = 0
         qtdO = 0
         over = False
+
         # Verifica vitórias nas linhas
         for row in range(3):
             qtdX = 0
@@ -133,6 +254,7 @@ class GameState:
               over = True
 
         # Verifica vitória nas colunas
+
         for col in range(3):
             qtdX = 0
             qtdO = 0
@@ -146,6 +268,7 @@ class GameState:
 
         qtdX = 0
         qtdO = 0
+
         # Verifica vitória nas diagonais
         for col in range(3):
             if self.board[col][col] == 'o':
@@ -157,6 +280,7 @@ class GameState:
 
         qtdX = 0
         qtdO = 0
+
         # Verifica vitória nas diagonais
         for col in range(3):
             if self.board[col][2-col] == 'o':
@@ -168,12 +292,22 @@ class GameState:
         
         return over
 
+    # -------------------------------------------------
     def checkGameEnd(self):
+        """
+        Verifica se ainda existem locais vazios no tabuleiro.
+
+        """
         for row in range(3):
                 for col in range(3):
                     if self.board[row][col] == '':
                         return False
         return True
 
+    # -------------------------------------------------
     def cleanBoard(self):
+        """
+        Reseta o tabuleiro, colocando todas as suas posições como vazias.
+
+        """
         self.board = [[''] * 3 for n in range(3)]
