@@ -70,7 +70,7 @@ while True:
                     break
                         
                 # Faz outra jogada aleatoria
-                board.moveRandom('o')
+                board.serverMove('o')
 
                 print('Eu joguei:')
                 board.print()

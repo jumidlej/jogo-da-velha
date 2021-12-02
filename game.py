@@ -193,7 +193,7 @@ class GameState:
         empty_col = -1
         for col in range(3):
             if self.board[col][col] == '':
-                empty_row = row
+                empty_row = col
                 empty_col = col
             if self.board[col][col] == 'x':
                 qtdX += 1
@@ -207,8 +207,8 @@ class GameState:
         empty_col = -1
         for col in range(3):
             if self.board[col][2-col] == '':
-                empty_row = row
-                empty_col = col
+                empty_row = col
+                empty_col = 2-col
             if self.board[col][2-col] == 'x':
                 qtdX += 1
         if qtdX == 2 and empty_row >= 0:
