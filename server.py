@@ -35,10 +35,7 @@ while True:
             if data.decode() != 'S':
                 # Faz uma jogada aleatoria
                 board.serverMove('o')
-                print('Eu joguei:')
             
-            board.print()
-
             # Envia o tabuleiro para o jogador
             connection.sendall(board.save().encode('utf-8'))
 
@@ -66,7 +63,7 @@ while True:
                     
                     break
                         
-                # Faz outra jogada aleatoria
+                # Faz outra jogada 
                 board.serverMove('o')
 
                 # Envia o tabuleiro para o jogador
