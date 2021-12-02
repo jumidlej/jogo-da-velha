@@ -1,6 +1,6 @@
 # Jogo da Velha
 
-Essa aplicação possui um programa cliente e um programa servidor. O programa servidor irá se comunicar e jogar contra o programa cliente de forma automática. O programa servidor irá ganhar sempre que lhe for possível, se não for, tentará impedir o programa cliente de ganhar, e caso não seja possível, realizará uma jogada aleatória.
+Essa aplicação possui um programa cliente e um programa servidor. O programa servidor irá se comunicar e jogar contra o programa cliente de forma automática.
 
 ## O Funcionamento do Jogo
 
