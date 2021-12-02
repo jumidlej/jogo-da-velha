@@ -1,16 +1,16 @@
 # Jogo da Velha
 
-Essa aplicação possui um programa cliente e um programa servidor. O programa servidor irá se comunicar e jogar contra o programa cliente de forma automática.
+Essa aplicação possui um programa cliente e um programa servidor. O programa servidor irá se comunicar e jogar o jogo da velha contra o programa cliente de forma automática.
 
 ## O Funcionamento do Jogo
 
-O jogo será gerido pelo programa servidor. Antes de cada partida, será perguntado se o programa cliente deseja começar a jogar. No final de cada partida, será perguntado se o programa cliente deseja jogar novamente.
+O jogo será gerido pelo programa servidor. Antes de cada partida, será perguntado ao programa cliente se ele deseja começar a partida. No final de cada partida, será perguntado ao programa cliente se ele deseja jogar novamente.
 
-A implementação do jogo foi feita a partir da Classe GameState, que guarda o estado do tabuleito do jogo. O tabuleiro do jogo será inicializado como uma lista com posições vazias e será preenchido a cada jogada do servidor ou do cliente. Existem funções auxiliares para executar jogadas, verificar se alguém venceu o jogo e limpar o tabuleiro quando necessário.
+A implementação do jogo foi feita a partir da Classe GameState, que guarda o estado do tabuleiro do jogo. O tabuleiro do jogo será inicializado como uma lista com posições vazias e será preenchido a cada jogada do servidor ou do cliente. Existem funções auxiliares para executar as jogadas, verificar se alguém venceu o jogo e limpar o tabuleiro quando necessário.
 
 A cada jogada, haverá uma verificação para saber se algum programa, cliente ou servidor, venceu a partida ou se deu 'velha'. 
 
-O programa servidor irá jogar de forma aleatória se, na rodada atual, não houver possibilidade de vencer o jogo ou de impedir o programa cliente de vencer. Para isso, o programa irá verificar todos os locais do tabuleiro.
+O programa servidor só irá jogar de forma aleatória se, na rodada atual, não houver possibilidade de vencer o jogo ou de impedir o programa cliente de vencer. Para isso, o programa irá verificar todos os locais do tabuleiro.
 
 ## O Protocolo da Aplicação
 
