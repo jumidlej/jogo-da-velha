@@ -33,7 +33,7 @@ try:
 
             # Verifica se o servidor venceu o jogo
             if board.checkGameVictory() or board.checkGameEnd():
-                sock.send("O servidor venceu o jogo".encode('utf-8'))
+                sock.sendall(board.save().encode('utf-8'))
             else:
                 print('Faça a sua jogada:')
                 print('------------------')

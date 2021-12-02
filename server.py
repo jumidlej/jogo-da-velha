@@ -34,7 +34,7 @@ while True:
             # Se sim, faz uma jogada, se não, envia o tabuleiro vazio
             if data.decode() != 'S':
                 # Faz uma jogada aleatoria
-                board.moveRandom('o')
+                board.serverMove('o')
                 print('Eu joguei:')
             
             board.print()
@@ -56,9 +56,6 @@ while True:
                 # Converte para string e restaura no tabuleiro
                 board.restore(data.decode('utf-8'))
 
-                print('O jogador jogou:')
-                board.print()
-
                 # Verifica fim de jogo
                 if board.checkGameVictory() or board.checkGameEnd():
                     connection.send("Game over! Deseja jogar novamente? (S/N) ".encode('utf-8'))
@@ -71,23 +68,6 @@ while True:
                         
                 # Faz outra jogada aleatoria
                 board.serverMove('o')
-
-                print('Eu joguei:')
-                board.print()
-
-                # Verifica fim de jogo
-                if board.checkGameVictory() or board.checkGameEnd():
-                    # Envia o tabuleiro
-                    connection.sendall(board.save().encode('utf-8'))
-                    data = connection.recv(1024)
-
-                    connection.send("Game over! Deseja jogar novamente? (S/N) ".encode('utf-8'))
-                    data = connection.recv(1024)
-                    
-                    if data.decode() != 'S':
-                        play_again = False
-                    
-                    break
 
                 # Envia o tabuleiro para o jogador
                 connection.sendall(board.save().encode('utf-8'))
