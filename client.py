@@ -40,12 +40,19 @@ try:
 
                 nok = True
                 while nok:
-                    row = int(input('Digite a linha: '))
-                    col = int(input('Digite a coluna: '))
+                    row = input('Digite a linha [1,3]: ')
+                    while row not in ['1', '2', '3']:
+                        print('Valor inválido. Tente novamente!')
+                        row = input('Digite a linha [1,3]: ')
+
+                    col = input('Digite a coluna [1,3]: ')
+                    while col not in ['1', '2', '3']:
+                        print('Valor inválido. Tente novamente!')
+                        col = input('Digite a coluna [1,3]: ')
 
                     nok = False
                     try:
-                        board.move(row, col, 'x')
+                        board.move(int(row)-1, int(col)-1, 'x')
                     except:
                         nok = True
                         print('Linha ou coluna inválida. Tente novamente.')
