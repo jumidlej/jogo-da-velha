@@ -55,7 +55,7 @@ while True:
 
                 # Verifica fim de jogo
                 if board.checkGameVictory() or board.checkGameEnd():
-                    connection.send("Game over! Deseja jogar novamente? (S/n) ".encode('utf-8'))
+                    connection.send("Deseja jogar novamente? (S/n) ".encode('utf-8'))
                     data = connection.recv(1024)
                     
                     if data.decode() not in ['S', 's']:
