@@ -21,13 +21,13 @@ O programa servidor só irá jogar de forma aleatória se, na rodada atual, não
 ## 2.2.1 __init__  
 Construtor. Inicializa o tabuleiro 3x3 vazio.
 
-## 2.2.2 Save
+## 2.2.2 save
 Salva os dados do tabuleiro para uma string.
 
 ## 2.2.3 restore
 Restaura os dados do tabuleiro a partir de uma string.
 
-## 2.2.4 save
+## 2.2.4 move
 Faz uma jogada no tabuleiro, nas posições dadas.
 
 ## 2.2.5 serverMove
