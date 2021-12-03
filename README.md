@@ -37,6 +37,9 @@ Verifica se o jogo foi vencido por alguma das peças.
 ## 2.1.7 checkGameEnd
 Verifica se ainda existem locais vazios no tabuleiro.
 
+## 2.1.8 cleanBoard
+Reseta o tabuleiro, colocando todas as suas posições como vazias.
+
 ## 3. O Protocolo da Aplicação
 
 Assim que o programa cliente se conecta com o programa servidor, o programa servidor pergunta se o cliente deseja ser o primeiro a efetuar uma jogada. A partir disso, o servidor envia o tabuleiro vazio ou com a primeira jogada efetuada. Então, sempre que o programa cliente receber uma nova jogada do servidor, ele verificará se é um tabuleiro ou uma pergunta que indica o fim do jogo (Deseja jogar novamente?). Se for um tabuleiro, o cliente verificará se a jogada efetuada pelo servidor venceu o jogo, caso o servidor tenha vencido, o cliente reenviará o tabuleiro recebido pelo servidor. Se o servidor não venceu, o cliente enviará o tabuleiro com uma nova jogada efetuada por ele. Se o cliente tiver recebido a pergunta: Deseja jogar novamente?, ele responderá com 'S' ou 'N'.
