@@ -28,11 +28,11 @@ while True:
             board.cleanBoard()
 
             # Pergunta se o jogador deseja iniciar o jogo
-            connection.send("Deseja iniciar o jogo? (S/N) ".encode('utf-8'))
+            connection.send("Deseja iniciar o jogo? (S/n) ".encode('utf-8'))
             data = connection.recv(1024)
             
             # Se sim, faz uma jogada, se não, envia o tabuleiro vazio
-            if data.decode() != 'S':
+            if data.decode() not in ['S', 's']:
                 # Faz uma jogada aleatoria
                 board.serverMove('o')
             
@@ -55,10 +55,10 @@ while True:
 
                 # Verifica fim de jogo
                 if board.checkGameVictory() or board.checkGameEnd():
-                    connection.send("Game over! Deseja jogar novamente? (S/N) ".encode('utf-8'))
+                    connection.send("Game over! Deseja jogar novamente? (S/n) ".encode('utf-8'))
                     data = connection.recv(1024)
                     
-                    if data.decode() != 'S':
+                    if data.decode() not in ['S', 's']:
                         play_again = False
                     
                     break

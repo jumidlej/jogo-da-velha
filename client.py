@@ -24,7 +24,7 @@ try:
     while True:
         # Recebe a jogada do servidor
         data = sock.recv(1024)
-        if data.decode('utf-8') != "Game over! Deseja jogar novamente? (S/N) ":
+        if data.decode('utf-8') != "Game over! Deseja jogar novamente? (S/n) ":
             board.restore(data.decode('utf-8'))
 
             # Mostra a jogada do servidor
@@ -63,7 +63,7 @@ try:
         else:
             # Responde se deseja jogar novamente
             answer = input(data.decode())
-            if answer != 'S':
+            if answer not in ['S', 's']:
                 break
 
             # Envia resposta para o servidor
