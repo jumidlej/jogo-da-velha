@@ -2,13 +2,11 @@
 Este projeto foi desenvolvido em Python como atividade avaliativa da matéria de Redes de Computadores I, ministrada pelo professor Jorge Lima na Universidade Estadual de Santa Cruz.
 O projeto consiste em uma aplicação que possui um programa cliente e um programa servidor. O programa servidor irá se comunicar e jogar o jogo da velha contra o programa cliente de forma automática. O protocolo de transporte utilizado para comunicação foi o TCP pois garante a entrega de todos os dados que estão sendo enviados, logo, ao fazer uma jogada é garantido que a resposta a essa escolha esteja disponível para ambos jogadores.
 
-## 2. O Funcionamento do Jogo:
-
-## 2.1 Cliente e Servidor 
+## 2. O Funcionamento do Jogo: Cliente e Servidor 
 
 O jogo será gerido pelo programa servidor. Antes de cada partida, será perguntado ao programa cliente se ele deseja começar a partida. No final de cada partida, será perguntado ao programa cliente se ele deseja jogar novamente.
 
-## 2.2 GameState 
+## 2.1 GameState 
 
 A implementação do jogo foi feita a partir da Classe GameState, que guarda o estado do tabuleiro do jogo. O tabuleiro do jogo será inicializado como uma lista com posições vazias e será preenchido a cada jogada do servidor ou do cliente. Existem funções auxiliares para executar as jogadas, verificar se alguém venceu o jogo e limpar o tabuleiro quando necessário.
 
@@ -18,25 +16,25 @@ O programa servidor só irá jogar de forma aleatória se, na rodada atual, não
 
 ## Lista de funções utilizadas:
 
-## 2.2.1 __init__  
+## 2.1.1 __init__  
 Construtor. Inicializa o tabuleiro 3x3 vazio.
 
-## 2.2.2 save
+## 2.1.2 save
 Salva os dados do tabuleiro para uma string.
 
-## 2.2.3 restore
+## 2.1.3 restore
 Restaura os dados do tabuleiro a partir de uma string.
 
-## 2.2.4 move
+## 2.1.4 move
 Faz uma jogada no tabuleiro, nas posições dadas.
 
-## 2.2.5 serverMove
+## 2.1.5 serverMove
 Faz uma jogada no tabuleiro, em uma das posições vazias.
 
-## 2.2.6 checkGameVictory
+## 2.1.6 checkGameVictory
 Verifica se o jogo foi vencido por alguma das peças.
 
-## 2.2.7 checkGameEnd
+## 2.1.7 checkGameEnd
 Verifica se ainda existem locais vazios no tabuleiro.
 
 ## 3. O Protocolo da Aplicação
