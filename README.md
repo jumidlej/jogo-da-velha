@@ -1,7 +1,6 @@
 # 1. Jogo da Velha
     Este projeto foi desenvolvido em Python como atividade avaliativa da matéria de Redes de Computadores I, ministrada pelo professor Jorge Lima na Universidade Estadual de Santa Cruz.
     O projeto consiste em uma aplicação que possui um programa cliente e um programa servidor. O programa servidor irá se comunicar e jogar o jogo da velha contra o programa cliente de forma automática. O protocolo de transporte utilizado para comunicação foi o TCP pois garante a entrega de todos os dados que estão sendo enviados, logo, ao fazer uma jogada é garantido que a resposta a essa escolha esteja disponível para ambos jogadores.
-
 ## 2. O Funcionamento do Jogo:
 
 ## 2.1 Servidor 
