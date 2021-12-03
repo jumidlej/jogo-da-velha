@@ -3,11 +3,11 @@
     O projeto consiste em uma aplicação que possui um programa cliente e um programa servidor. O programa servidor irá se comunicar e jogar o jogo da velha contra o programa cliente de forma automática. O protocolo de transporte utilizado para comunicação foi o TCP pois garante a entrega de todos os dados que estão sendo enviados, logo, ao fazer uma jogada é garantido que a resposta a essa escolha esteja disponível para ambos jogadores.
 ## 2. O Funcionamento do Jogo:
 
-## 2.1 Servidor 
+## Servidor 
 
     O jogo será gerido pelo programa servidor. Antes de cada partida, será perguntado ao programa cliente se ele deseja começar a partida. No final de cada partida, será perguntado ao programa cliente se ele deseja jogar novamente.
 
-## 2.2 GameState 
+## GameState 
 
     A implementação do jogo foi feita a partir da Classe GameState, que guarda o estado do tabuleiro do jogo. O tabuleiro do jogo será inicializado como uma lista com posições vazias e será preenchido a cada jogada do servidor ou do cliente. Existem funções auxiliares para executar as jogadas, verificar se alguém venceu o jogo e limpar o tabuleiro quando necessário.
 
