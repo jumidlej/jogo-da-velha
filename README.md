@@ -4,7 +4,7 @@ O projeto consiste em uma aplicação que possui um programa cliente e um progra
 
 ## 2. O Funcionamento do Jogo:
 
-## 2.1 Servidor 
+## 2.1 Cliente e Servidor 
 
 O jogo será gerido pelo programa servidor. Antes de cada partida, será perguntado ao programa cliente se ele deseja começar a partida. No final de cada partida, será perguntado ao programa cliente se ele deseja jogar novamente.
 
@@ -15,6 +15,29 @@ A implementação do jogo foi feita a partir da Classe GameState, que guarda o e
 A cada jogada, haverá uma verificação para saber se algum programa, cliente ou servidor, venceu a partida ou se deu 'velha'. 
 
 O programa servidor só irá jogar de forma aleatória se, na rodada atual, não houver possibilidade de vencer o jogo ou de impedir o programa cliente de vencer. Para isso, o programa irá verificar todos os locais do tabuleiro.
+
+## Lista de funções utilizadas:
+
+## 2.2.1 __init__  
+Construtor. Inicializa o tabuleiro 3x3 vazio.
+
+## 2.2.2 Save
+Salva os dados do tabuleiro para uma string.
+
+## 2.2.3 restore
+Restaura os dados do tabuleiro a partir de uma string.
+
+## 2.2.4 save
+Faz uma jogada no tabuleiro, nas posições dadas.
+
+## 2.2.5 serverMove
+Faz uma jogada no tabuleiro, em uma das posições vazias.
+
+## 2.2.6 checkGameVictory
+Verifica se o jogo foi vencido por alguma das peças.
+
+## 2.2.7 checkGameEnd
+Verifica se ainda existem locais vazios no tabuleiro.
 
 ## 3. O Protocolo da Aplicação
 
@@ -28,6 +51,7 @@ Para essa aplicação, o protocolo escolhido foi o TCP, pois é mais confiável 
 
 ## 4. Requisitos para o Funcionamento
 
+* Sistema operacional Linux
 * Python 3.8
 * NumPy 1.20
 
@@ -35,3 +59,8 @@ Para essa aplicação, o protocolo escolhido foi o TCP, pois é mais confiável 
 
 * python3 server.py
 * python3 client.py
+
+## 6. Screenshots
+
+Abaixo estão algumas Screenshots  de interface do jogo e mensagens que podem ser apresentadas.
+Nas imgens abaixo os dois jogadores já se conectaram e fizeram sua primeira jogada:
