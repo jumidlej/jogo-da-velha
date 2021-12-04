@@ -57,8 +57,3 @@ Para essa aplicação, o protocolo escolhido foi o TCP, pois é mais confiável 
 
 * python3 server.py
 * python3 client.py
-
-## 6. Screenshots
-
-Abaixo estão algumas Screenshots  de interface do jogo e mensagens que podem ser apresentadas.
-Nas imgens abaixo os dois jogadores já se conectaram e fizeram sua primeira jogada:
